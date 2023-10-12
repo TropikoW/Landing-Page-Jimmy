@@ -30,7 +30,7 @@
     h2{
         font-size: 2.5rem;
     }
-    p,a{
+    p,a,h4{
         font-size: 1.8rem;
     }
     /* header */
@@ -183,55 +183,109 @@
         font-family: var(--fointParagraph);
     }
     .container__main__content__target__contactP>span{
+        font-size: 1.4rem;
         position: absolute;
         bottom: 0;
         right: 0;
+        cursor: pointer;
+    }
+    .container__main__content__target__contactP>span:hover{
+        color: red;
+    }
+    .modal__show{
+        opacity: 1;
+        pointer-events: unset;
     }
     .window__modal__hv{
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #111111bd;
+        opacity: 0;
+        pointer-events: none;
+    }
+    .modal__hv__container{
+        display: flex;
+        justify-content: center;
+    }
+    .modal__hv__container__first{
         background-color: var(--colourWhite);
         width: 70rem;
+        overflow: auto;
+        max-height: 100vh;
     }
-    .modal__hv__container__title{
-        display: grid;
-        grid-template-columns: repeat(1,2fr);
-    }
-    .modal__hv__container__title>figure{
-        grid-column: 1;
-    }
-    .modal__hv__container__title>section{
-        grid-column: 2;    
-    }
-    .modal__hv__container__title>section>h2{
-        position: absolute;
-        left:18rem;
-        margin-top: 1rem;
-    }
-    .modal__hv__container__title>section>h2+h3{
-        margin-top: 8rem;
-        position: absolute;
-        left: 18rem;
-        font-size: 2.5rem;
-    }
-    .modal__hv__container__title>section>h2+h3+ul{
-        margin-top: 8.5rem;
-        position: absolute;
-        left: 38rem;
-    }
-    .modal__hv__container__title>section>h2+h3+ul>li{
-        font-size: 1.8rem;
-    }
-    .modal__hv__container__title>figure>img{
-        width: 15rem;
-    }
-    .modal__hv__container__skills{
+    .modal__hv__container__target{
         display: grid;
         grid-template-columns: repeat(2,1fr);
+        position: relative;
     }
-    /* footer */
+    .modal__hv__container__target>figure{
+        position: absolute;
+        padding: 0.5rem;
+    }
+    .modal__hv__container__target>figure>img{
+        width: 3rem;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    .modal__hv__container__target__left{
+        background-color: cadetblue;
+    }
+    .modal__hv__container__target__left>h3{
+        font-size: 2.5rem;
+        width: 100%;
+        text-align: center;
+        margin-top: 1.5rem;
+        font-family: var(--fointNavegator);
+    }
+    .modal__hv__container__target__left>figure{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1.5rem;
+    }
+    .modal__hv__container__target__left>figure>img{
+        width: 15rem;
+    }
+    .modal__hv__container__target__left>h4{
+        color: var(--colourWhite);
+        background-color: var(--colourBlack);
+    }
+    .modal__hv__container__target__rigth>h4:nth-child(1){
+        color: gray;
+        border-top: 0.1rem solid gray;
+        margin-top: 5rem;
+    }
+    .modal__hv__container__target__rigth__border{
+        position: relative;
+        margin-top: 2rem;
+        padding: 1rem;
+    }
+    .modal__hv__container__target__rigth__border::before{
+        content: '';
+        position: absolute;
+        left: 5rem;
+        right: 5rem;
+        height: 0.1rem;
+        background-color: gray;
+    }
+    
+    .modal__hv__container__target__rigth__border::before {
+        top: 0;
+    }
+    .modal__hv__container__target__rigth__border>p{
+        font-size: 1.5rem;
+    }
+    .modal__hv__container__target__rigth__border>span{
+        font-size: 1.3rem;
+        color: var(--colourWhite);
+        background-color: var(--colourBlack);
+    }
     .container__footer{
         padding: 5rem;
         text-align: center;
-        position: relative;
         background-color: var(--colourBlack);
     }
     .container__footer>p{

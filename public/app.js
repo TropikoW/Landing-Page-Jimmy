@@ -1,5 +1,6 @@
 // id
-const btnShowHV = document.querySelector('.btn_showHV');
+const btnShowHV = document.querySelectorAll('#btn_showHV');
+const btnCloseHV = document.querySelector('#btn_closeHV');
 
 // class
 const containerHeaderTarget = document.querySelector('.container__header__contain__subtitle');
@@ -11,6 +12,7 @@ const containerMainContentContactDescriptionP = document.querySelector('.contain
 const containerMainContentTargetDescriptionTitle = document.querySelector('.container__main__content__target__descriptionTitle')
 const containerMainContentTargetCOntactP = document.querySelector('.container__main__content__target__contactP');
 const containerMainContentTargetContactDescriptionTitle = document.querySelector('.container__main__content__target__contact__descriptionTitle');
+const windowsModalHv = document.querySelector('.window__modal__hv');
 
 // lets
 let injectParagraph;
@@ -71,10 +73,18 @@ function loadPage() {
             <p>09131313</p>
             <p>Email</p>
             <p>aksdmaksdas</p>
-            <span>Ver HV</span>
+            <span id="btnShowHV">Ver HV</span>
         `;
         containerMainContentTargetCOntactP.innerHTML += injectParagraph;
         containerMainContentTargetContactDescriptionTitle.style.marginTop = '0px'
+        const btnShowHV = document.querySelector('#btnShowHV');
+        btnShowHV.addEventListener('click',function(){
+            btnShowHV.addEventListener('click', function (e) {
+                e.preventDefault();
+                windowsModalHv.style.opacity = '1';
+                windowsModalHv.style.pointerEvents = 'unset';
+            })    
+        })
     })
     containerMainTargetContact.addEventListener("mouseleave",function(){
         containerMainTargetContact.style.width = "600px";
@@ -82,6 +92,19 @@ function loadPage() {
         containerMainContentTargetCOntactP.innerHTML = injectParagraph;
         containerMainContentTargetContactDescriptionTitle.style.marginTop = '120px'
     })
+    Array.from(btnShowHV).forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            windowsModalHv.style.opacity = '1';
+            windowsModalHv.style.pointerEvents = 'unset';
+            console.log(btnShowHV)
+        })
+    })
+    btnCloseHV.addEventListener('click',function(){
+        windowsModalHv.style.opacity = '0';
+        windowsModalHv.style.pointerEvents = 'none';
+    })
+    console.log('Hello developer! At the moment, this page is under development. If you want to see my GitHub repositories, here is the link: https://github.com/TropikoW?tab=repositories')
 };
 
 window.addEventListener('load',loadPage);
