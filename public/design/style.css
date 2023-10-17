@@ -132,6 +132,8 @@
     }
     .container__main__content__target>figure>img{
         width: 15rem;
+        margin: 0.1rem;
+        height: 15rem;
     }
     .container__main__content__target>figure>img:hover{
         width: 17rem;
@@ -287,6 +289,7 @@
         padding: 5rem;
         text-align: center;
         background-color: var(--colourBlack);
+        position: relative;
     }
     .container__footer>p{
         color: var(--colourWhite);

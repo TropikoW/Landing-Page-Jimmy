@@ -1,6 +1,7 @@
 // id
 const btnShowHV = document.querySelectorAll('#btn_showHV');
 const btnCloseHV = document.querySelector('#btn_closeHV');
+const containerMainContentTargetFigure = document.querySelector('#container__main__content__target__figure');
 
 // class
 const containerHeaderTarget = document.querySelector('.container__header__contain__subtitle');
@@ -16,6 +17,9 @@ const windowsModalHv = document.querySelector('.window__modal__hv');
 
 // lets
 let injectParagraph;
+let clients = [];
+let carouselImage = [];
+let injectImage;
 
 // class
 class imagesRefers{
@@ -25,11 +29,41 @@ class imagesRefers{
     };
 };
 
-// let refersImages = new imagesRefers('../resources/img/logo_n.jpg')
+class clientRefers {
+    constructor(name,numberPhone,address) {
+        this.name = name;
+        this.numberPhone = numberPhone;
+        this.address = address;
+    };
+};
 
+class caroucelImages {
+    constructor(url,alt) {
+        this.url = url;
+        this.alt = alt;
+    };
+};
+
+// Here i should inject the clients
+let firtsClient = new clientRefers('no name',310000000,'Carr 0 ,00 ');
+let twoClient = new clientRefers('no name',310000000,'Carr 0 ,00 ');
+let thirtyClient = new clientRefers('no name',310000000,'Carr 0 ,00 ');
+
+let firstcarousel = new caroucelImages(['./public/resources/img/cnt_1.jpeg','./public/resources/img/cnt_2.jpeg','./public/resources/img/cnt_3.jpeg','./public/resources/img/cnt_4.jpeg','./public/resources/img/cnt_5.jpeg','./public/resources/img/cnt_6.jpeg'],'Image about construction');
+
+carouselImage.push(firstcarousel);
+
+// here i push the different clients to the array
+clients.push(firtsClient,twoClient,thirtyClient);
 
 // functions
 function loadPage() {
+    carouselImage.forEach((image)=>{
+        injectImage = `
+            ${image.url.map(url=>`<img src="${url}" alt="">`)}
+        `;
+    });
+    containerMainContentTargetFigure.innerHTML = injectImage;
     containerHeaderTarget.addEventListener("mouseenter",function(){
         containerHeaderTarget.style.width = '320px';        
     });
@@ -38,23 +72,16 @@ function loadPage() {
     });
     containerMainTarget.addEventListener("mouseenter",function(){
         containerMainTarget.style.width = '1200px';
-        injectParagraph = `
-            <section>
-                <p>Ejemplo 1</p>
-                <p>1231313</p>
-                <p>direccion</p>
-            </section>
-            <section>
-                <p>Ejemplo 2</p>
-                <p>1231313</p>
-                <p>direccion</p>
-            </section>
-            <section>
-                <p>Ejemplo 3</p>
-                <p>1231313</p>
-                <p>direccion</p>
-            </section>
+        
+        clients.forEach((client)=>{
+            injectParagraph += `
+                <section>
+                    <p>${client.name}</p>
+                    <p>${client.numberPhone}</p>
+                    <p>${client.address}</p>
+                </section>
         `;
+        });
         containerMainContentTargetDescriptionTitle.style.marginTop = '0px';
         containerMainContentContactDescriptionP.innerHTML += injectParagraph;
     })
@@ -104,7 +131,7 @@ function loadPage() {
         windowsModalHv.style.opacity = '0';
         windowsModalHv.style.pointerEvents = 'none';
     })
-    console.log('Hello developer! At the moment, this page is under development. If you want to see my GitHub repositories, here is the link: https://github.com/TropikoW?tab=repositories')
+    console.warn('Hello developer! At the moment, this page is under development. If you want to see my GitHub repositories, here is the link: https://github.com/TropikoW?tab=repositories')
 };
 
 window.addEventListener('load',loadPage);
