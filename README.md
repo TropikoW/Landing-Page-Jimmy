@@ -1,4 +1,4 @@
-# project_jimmy_landingpage
+# Landing Page
 
 # IMPORTANT :
 
